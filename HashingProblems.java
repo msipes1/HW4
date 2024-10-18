@@ -1,5 +1,5 @@
 /*
- * *** YOUR NAME GOES HERE / YOUR SECTION NUMBER ***
+ * *** Mimi Sipes / COMP 272-002 ***
  *
  * This HashingProblems object contains three methods / problems that you must
  * complete utilize the HashMap object within the Java's Collection Framework Library.
@@ -17,6 +17,7 @@ import java.util.Set;
 
 class HashingProblems {
 
+    //DONE
     /*
      * Method getAverage()
      *
@@ -32,19 +33,23 @@ class HashingProblems {
      */
 
     public double getAverage(HashMap<Integer, Integer> map, int[] array) {
+        int sum = 0;
+        int count = 0;
 
-        /*
-         * ADD YOUR CODE HERE - DO NOT FORGET TO ADD YOU NAME AT TOP OF FILE
-         *
-         * Note: if NO values found in common between the HashMap and supplied array,
-         * returning 0.0 is NOT correct, as that is not the average value. Whereas
-         * returning 0.0/0.0 IS correct (which would return a non-number).
-         */
+        for (int key : array) {
+            if (map.containsKey(key)) {
+                sum += map.get(key);
+                count++;
+            }
+        }
 
+        if (count >0) {
+            return (double) sum/count;
+        }
          return 0.0 / 0.0;
   }
 
-
+    //DONE
     /*
      * Method odd()
      *
@@ -53,19 +58,15 @@ class HashingProblems {
      */
 
   public ArrayList<String> odd(HashMap<Integer, String> map) {
-    
       ArrayList<String> result = new ArrayList<>();
 
-      /*
-       * ADD YOUR CODE HERE
-       *
-       * Hint: Consider iterating over the HashMap using the keySet method.
-       */
-
-
+      for (Integer key : map.keySet()) {
+          if (key % 2 != 0) {
+              result.add(map.get(key));
+          }
+      }
       return result;
   }
-
 
   /*
    * Method twoSums()
@@ -105,11 +106,23 @@ class HashingProblems {
    */
 
   public int twoSums(int[] numbers, int k) {
+      HashSet<Integer> set = new HashSet<>();
+      int count = 0;
 
-      /*
-       * ADD YOUR CODE HERE
-       */
+      for (int number : numbers) {
+          set.add(numbers);
+      }
 
+      for (int number : numbers) {
+          if (set.contains(number + k)) {
+              count++;
+          }
+          if (set.contains(number - k)) {
+              count++;
+          }
+          set.remove(number);
+          return count/2;
+      }
       return -1;
   }
 
