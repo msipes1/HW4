@@ -106,11 +106,15 @@ class HashingProblems {
    */
 
   public int twoSums(int[] numbers, int k) {
+      if (numbers.length == 0) {
+          return -1;
+      }
+
       HashSet<Integer> set = new HashSet<>();
       int count = 0;
 
       for (int number : numbers) {
-          set.add(numbers);
+          set.add(number);
       }
 
       for (int number : numbers) {
@@ -121,9 +125,8 @@ class HashingProblems {
               count++;
           }
           set.remove(number);
-          return count/2;
       }
-      return -1;
+      return count;
   }
 
 } /* end class HashingProblems */
