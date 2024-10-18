@@ -240,7 +240,7 @@ class myHashMap<K,V> {
         }
         return null;
     }
-    
+
     /**
      * Method: boolean remove(K, V)
      *
@@ -387,7 +387,7 @@ class myHashMap<K,V> {
         return originalValue;
     }
 
-
+    //FIX
     /**
      * method: V replace(K, V)
      *
@@ -403,20 +403,18 @@ class myHashMap<K,V> {
      *               else null if not found.
      */
 
-    /*
-     * ADD YOUR CODE HERE - DO NOT FORGET TO ADD YOUR NAME AT TOP OF FILE
-     *
-     * Make sure you return the proper value based on the outcome of this method's
-     * replace (see method's prologue above).
-     */
     public V replace(K key, V val) {
-        if (this.containsKey(key)){
-            return val;
+        V oldVal = get(key);
+
+        if (this.containsKey(key) && oldVal == null) {
+            put(key, val);
+            return oldVal;
         }
-        return null;
+        return val;
     }
 
-    
+
+    //DONE
     /**
      * method: boolean replace(K, V, V)
      *
@@ -433,6 +431,14 @@ class myHashMap<K,V> {
      */
 
     public boolean replace(K key, V oldVal, V newVal) {
+        if(this.containsKey(key)) {
+            V currentVal = this.get(key);
+
+            if (currentVal.equals(oldVal)) {
+                put(key, newVal);
+                return true;
+            }
+        }
         return false;
     }
 
